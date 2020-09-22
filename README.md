@@ -12,15 +12,7 @@ npm install
 quasar dev
 ```
 
-### Lint the files
+### Vue Styleguide
 ```bash
-npm run lint
+npm run styleguide
 ```
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
