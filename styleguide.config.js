@@ -3,7 +3,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const path = require('path')
 
 module.exports = {
-  require: [path.join(__dirname, 'styleguide/global.requires.js')],
+  require: [
+    path.join(__dirname, 'styleguide/global.requires.js'),
+    './styleguide/material-icons.css'
+  ],
   components: './src/components/**/[A-Z]*.vue',
   webpackConfig: {
     module: {

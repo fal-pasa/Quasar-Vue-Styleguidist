@@ -1,9 +1,7 @@
 
-// import Vue from 'vue'
-// import { Quasar, QBtn } from 'quasar'
+import Vue from 'vue'
+import Quasar from 'quasar'
 
-// Vue.use(Quasar, {
-//   components: {
-//     QBtn
-//   }
-// })
+import 'quasar/dist/quasar.css'
+
+Vue.use(Quasar)

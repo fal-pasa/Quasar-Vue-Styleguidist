@@ -1,5 +1,5 @@
 <template>
-  <q-btn :color="color" @click="$emit('click')">
+  <q-btn :color="color" @click="$emit('click')" unelevated>
     <q-icon :name="icon" v-if="icon" />
     {{label}}
     <slot></slot>
@@ -38,10 +38,3 @@ export default {
 <style>
 
 </style>
-
-<docs>
-
-```jsx
-<custon-buttom color="green" icon="edit" label="Editar" />
-```
-</docs>

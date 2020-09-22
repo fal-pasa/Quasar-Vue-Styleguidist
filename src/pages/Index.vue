@@ -4,11 +4,16 @@
       alt="Quasar logo"
       src="~assets/quasar-logo-full.svg"
     >
+    <custon-buttom color="green" icon="edit" label="Editar" />
   </q-page>
 </template>
 
 <script>
+import CustonButtom from 'src/components/custon-buttom/CustonButtom'
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components: {
+    CustonButtom
+  }
 }
 </script>
