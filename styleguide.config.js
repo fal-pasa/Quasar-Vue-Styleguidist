@@ -34,5 +34,6 @@ module.exports = {
       // add vue-loader plugin
       new VueLoaderPlugin()
     ]
-  }
+  },
+  styleguideDir: './styleguide/dist'
 }
