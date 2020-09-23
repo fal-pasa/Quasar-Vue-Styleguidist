@@ -1,4 +1,8 @@
 <template>
+  <!--
+    default click of button
+    @event click
+  -->
   <q-btn :color="color" @click="$emit('click')" unelevated>
     <q-icon :name="icon" v-if="icon" />
     {{label}}
@@ -20,7 +24,7 @@ export default {
     },
     /**
        * Optional icon for the button.
-       * Use material ou fontawesome
+       * Use material-icons
        */
     icon: {
       type: String

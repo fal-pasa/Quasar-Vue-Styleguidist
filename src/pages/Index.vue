@@ -4,16 +4,17 @@
       alt="Quasar logo"
       src="~assets/quasar-logo-full.svg"
     >
-    <custon-buttom color="green" icon="edit" label="Editar" />
+    <custon-button color="green" icon="edit" label="Editar" />
   </q-page>
 </template>
 
 <script>
-import CustonButtom from 'src/components/custon-buttom/CustonButtom'
+import CustonButton from 'src/components/CustonButton/CustonButton.vue'
+
 export default {
   name: 'PageIndex',
   components: {
-    CustonButtom
+    CustonButton
   }
 }
 </script>
