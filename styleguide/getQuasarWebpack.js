@@ -44,9 +44,8 @@ const cfg = {
 }
 
 async function quasarconf () {
-  // get the webpack config directly from nuxt
-  const teste = await QuasarConfig(cfg)
-  return teste
+  const config = await QuasarConfig(cfg)
+  return config
 }
 
 module.exports = async function () {
