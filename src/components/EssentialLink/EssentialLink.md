@@ -2,9 +2,9 @@ EssentialLink example:
 
 ```vue
 <essential-link
-  title="Docs"
-  caption="quasar.dev"
-  icon="school"
-  link="https://quasar.dev"
+  :title="quasar.title"
+  :caption="quasar.caption"
+  :icon="quasar.icon"
+  :link="quasar.link"
 />
 ```

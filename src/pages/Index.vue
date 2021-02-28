@@ -1,20 +1,19 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
     <custon-button color="green" icon="edit" label="Editar" />
+    <counter-button />
   </q-page>
 </template>
 
 <script>
 import CustonButton from 'src/components/CustonButton/CustonButton.vue'
+import CounterButton from 'src/components/CounterButton/CounterButton.vue'
 
 export default {
   name: 'PageIndex',
   components: {
-    CustonButton
+    CustonButton,
+    CounterButton
   }
 }
 </script>

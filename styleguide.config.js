@@ -1,39 +1,44 @@
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-// import path from 'path'
 const path = require('path')
 
-module.exports = {
-  require: [
-    path.join(__dirname, 'styleguide/global.requires.js'),
-    './styleguide/material-icons.css'
-  ],
-  components: './src/components/**/[A-Z]*.vue',
-  webpackConfig: {
+const getQuasarWebpack = require('./styleguide/getQuasarWebpack')
+
+const FILTERED_PLUGINS = [
+  'WebpackBarPlugin', // taken out like the example of nuxt
+  'VueSSRClientPlugin', // taken out like the example of nuxt
+  'HotModuleReplacementPlugin', // taken out like the example of nuxt
+  'FriendlyErrorsWebpackPlugin', // taken out like the example of nuxt
+  'HtmlWebpackPlugin', // taken out like the example of nuxt
+  'lazyCompileHook', // I couldn't get it to work
+  'HtmlAddonsPlugin', // I couldn't get it to work
+  'DefinePlugin' // I couldn't get it to work
+]
+
+module.exports = async () => {
+  const quasarWebpack = await getQuasarWebpack()
+
+  const webpackConfig = {
     module: {
       rules: [
-        // Vue loader
-        {
-          test: /\.vue$/,
-          exclude: /(node_modules|pages)/,
-          loader: 'vue-loader'
-        },
-        // Babel loader, will use your project’s .babelrc
-        {
-          test: /\.js?$/,
-          exclude: /(node_modules|pages)/,
-          loader: 'babel-loader'
-        },
-        // Other loaders that are needed for your components
-        {
-          test: /\.(css|styl)$/,
-          loader: 'style-loader!css-loader'
-        }
+        ...quasarWebpack.module.rules.filter(
+          // remove the eslint-loader
+          a => a.loader !== 'eslint-loader'
+        )
       ]
     },
+    resolve: { ...quasarWebpack.resolve },
     plugins: [
-      // add vue-loader plugin
-      new VueLoaderPlugin()
+      ...quasarWebpack.plugins.filter(
+        // And some other plugins that could conflcit with ours
+        p => FILTERED_PLUGINS.indexOf(p.constructor.name) === -1
+      )
     ]
-  },
-  styleguideDir: './styleguide/dist'
+  }
+
+  return {
+    title: 'Quasar + Style Guide',
+    components: './src/components/**/[A-Z]*.vue',
+    renderRootJsx: path.join(__dirname, 'styleguide/styleguide.root.js'),
+    webpackConfig,
+    styleguideDir: './styleguide/dist'
+  }
 }
