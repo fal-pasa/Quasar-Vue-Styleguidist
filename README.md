@@ -1,4 +1,4 @@
-# Teste styleguide (styleguide)
+# Quasar + Vue Styleguidist
 
 A Quasar Framework app
 
